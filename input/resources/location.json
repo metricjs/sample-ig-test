@@ -1,0 +1,59 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "test-location",
+  "url": "http://example.org/StructureDefinition/test-location",
+  "version": "1.0.0",
+  "name": "TestLocation",
+  "title": "Test Location",
+  "description": "Details of a clinic where healthcare services are provided.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "LocationMapping",
+      "name": "Database Mapping",
+      "uri": "https://somewebsite.com"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Location",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Location",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Location",
+        "path": "Location",
+        "mapping": [
+          {
+            "identity": "LocationMapping",
+            "map": "Mapping",
+            "comment": "Comments"
+          }
+        ]
+      },
+      {
+        "id": "Location.status",
+        "path": "Location.status",
+        "mapping": [
+          {
+            "identity": "LocationMapping",
+            "map": "Location.status",
+            "comment": "If status then `active`."
+          }
+        ]
+      },
+      {
+        "id": "Location.telecom",
+        "path": "Location.telecom",
+        "mapping": [
+          {
+            "identity": "LocationMapping",
+            "map": "Location.code, Location.phone",
+            "comment": "Testing *italics*"
+          }
+        ]
+      }
+    ]
+  }
+}
